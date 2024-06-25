@@ -18,6 +18,12 @@ void display(int arr[],int size){
 }
 
 int main(){
-
+    int arr[5]={10,30,90,20,15};
+    int size=sizeof(arr)/sizeof(arr[0]);
+    cout << "Array before sorting : ";
+    display(arr, size);
+    insertionSort(arr,size);
+    cout << "\nArray after sorting : ";
+    display(arr, size);
     return 0;
 }
