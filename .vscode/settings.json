@@ -89,6 +89,7 @@
         "typeinfo": "cpp",
         "valarray": "cpp",
         "variant": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "stdc++.h": "c"
     }
 }
