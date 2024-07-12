@@ -10,7 +10,7 @@ using namespace std;
 
 class Solution {
 public:
-    int maximumGain(string s, int x, int y) {
+    int maximumGain(string s, int x, int y) {    //time complexcity O(n) And Space Complexcity o(n)
         string first,second;
         int highScore,lowScore;
         int finalScore=0;
