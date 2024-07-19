@@ -28,6 +28,24 @@ public:
     }
 };
 
+//More optimal solution is this becuase don't use extra space 
+// int maxDepth(string s) {
+//         int maxDepth = 0;
+//         int currentDepth = 0;
+
+//         for (char c : s) {
+//             if (c == '(') {
+//                 currentDepth++;
+//                 maxDepth = max(maxDepth, currentDepth);
+//             } else if (c == ')') {
+//                 currentDepth--;
+//             }
+//         }
+
+//         return maxDepth;
+//     }
+// }
+
 int main(){
     Solution s;
     cout << s.maxDepth("(1+((2/4)))");
