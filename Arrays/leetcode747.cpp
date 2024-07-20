@@ -37,6 +37,7 @@ public:
 int main(){
     Solution s;
     vector<int> arr={4,3,2,8};
+    cout << "Index : ";
     cout << s.dominantIndex(arr);
     return 0;
 }
