@@ -11,7 +11,7 @@ using namespace std;
 
 class Solution {
 public:
-    int beauty(vector<int> alpha){
+    int beauty(vector<int> alpha){      
         int mf=INT_MIN,lf=INT_MAX;
         for(int i=0;i<alpha.size();i++){
             mf=max(mf,alpha[i]);
@@ -21,11 +21,11 @@ public:
         }
         return mf-lf;
     }
-    int beautySum(string s) {
+    int beautySum(string s) {       //time complexity O(n**2) and space is O(1)
         int res=0;
         for(int i=0;i<s.size();i++){
             vector<int>alpha(26,0);
-            for(int j=i;j<s.size();j++){
+            for(int j=i;j<s.size();j++){    
                 alpha[s[j]-'a']++;
                 res+=beauty(alpha);
             }
