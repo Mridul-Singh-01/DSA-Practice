@@ -83,7 +83,7 @@ Node* deleteKthElement(Node* head,int k){
             Node* prev=it->back;
             prev->next=it->next;
             if(it->next!=nullptr){
-                it->next->back=it->back;
+                it->next->back=prev;
             }
             it->next=nullptr;
             it->back=nullptr;
@@ -113,7 +113,7 @@ Node* deleteBeforeVal(Node* head, int val){
             Node* prev=it->back;
             prev->next=it->next;
             if(it->next!=nullptr){
-                it->next->back=it->back;
+                it->next->back=prev;
             }
             it->next=nullptr;
             it->back=nullptr;
@@ -129,7 +129,7 @@ int main(){
     vector<int> arr={1,2,3,4,5};
     Node* head=convertArrayToDL(arr);
     printLL(head);
-    head=deleteBeforeVal(head,1);
+    head=deleteKthElement(head,4);
     printLL(head);
     return 0;
 }
