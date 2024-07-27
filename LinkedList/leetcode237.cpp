@@ -5,6 +5,11 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+struct ListNode{
+    int data;
+    ListNode* next;
+}
+
 class Solution {
 public:
     void deleteNode(ListNode* node) {
