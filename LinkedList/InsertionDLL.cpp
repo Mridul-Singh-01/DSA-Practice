@@ -86,7 +86,7 @@ int main(){
     vector<int> arr={1,2,3,4};
     Node* head=convertArrayToDL(arr);
     printLL(head);
-    head=insertAtK(head,9,5);
+    head=insertAtEnd(head,9);
     printLL(head);
     return 0;
 }
