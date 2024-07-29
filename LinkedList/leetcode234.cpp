@@ -27,7 +27,7 @@ public:
         }
         return prev;
     }
-    bool isPalindrome(ListNode* head) {
+    bool isPalindrome(ListNode* head) {     //time complexity O(n) and space complexity O(1)
         if(head==nullptr || head->next==nullptr)return true;
         ListNode* slow=head;
         ListNode* fast=head;
