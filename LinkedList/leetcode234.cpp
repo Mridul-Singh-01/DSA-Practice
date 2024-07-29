@@ -31,11 +31,11 @@ public:
         if(head==nullptr || head->next==nullptr)return true;
         ListNode* slow=head;
         ListNode* fast=head;
-        while(fast->next!=nullptr && fast->next->next!=nullptr){
+        while(fast!=nullptr && fast->next!=nullptr){
             slow=slow->next;
             fast=fast->next->next;
         }
-        ListNode* newHead=reverse(slow->next);
+        ListNode* newHead=reverse(slow);
         ListNode* first=head;
         ListNode* second=newHead;
         while(second!=nullptr){
@@ -54,7 +54,8 @@ public:
 int main(){
     ListNode *head = new ListNode(1);
     head->next = new ListNode(2);
-    head->next->next = new ListNode(1);
+    head->next->next = new ListNode(2);
+    head->next->next->next = new ListNode(1);
     Solution s;
     cout << s.isPalindrome(head);
     return 0;
