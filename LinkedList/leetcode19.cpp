@@ -55,6 +55,27 @@ public:
     }
 };
 
+//Optimal Solution
+ListNode* removenth(ListNode* head,int n){
+    if(head==nullptr)return nullptr;
+    ListNode* fast=head;
+    for(int i=0;i<n;i++){
+        fast=fast->next;
+    }
+    if(fast==nullptr){
+        return head->next;
+    }
+    ListNode* slow=head;
+    while(fast->next!=nullptr){
+        slow=slow->next;
+        fast=fast->next;
+    }
+    ListNode* temp=slow->next;
+    slow->next=slow->next->next;
+    delete temp;
+    return head;
+}
+
 int main(){
     ListNode *head = new ListNode(1);
     head->next = new ListNode(2);
