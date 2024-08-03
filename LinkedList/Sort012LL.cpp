@@ -52,6 +52,47 @@ Node* segregate(Node *head) {       //time complexity O(n) and space complexity 
     return head;
 }
 
+//More Optimzed Code
+Node* segregate(Node *head) {
+    if (head == nullptr || head->next == nullptr) return head;
+
+    Node* zeroD = new Node(0); // Dummy node for 0s
+    Node* oneD = new Node(0);  // Dummy node for 1s
+    Node* twoD = new Node(0);  // Dummy node for 2s
+
+    Node* zero = zeroD, *one = oneD, *two = twoD; // Current pointers for 0s, 1s, and 2s lists
+
+    Node* curr = head;
+    while (curr != nullptr) {
+        if (curr->data == 0) {
+            zero->next = curr;
+            zero = zero->next;
+        } else if (curr->data == 1) {
+            one->next = curr;
+            one = one->next;
+        } else {
+            two->next = curr;
+            two = two->next;
+        }
+        curr = curr->next;
+    }
+
+    // Now connect the three lists
+    zero->next = (oneD->next) ? oneD->next : twoD->next; // If 1s list is empty, connect 0s list directly to 2s list
+    one->next = twoD->next;
+    two->next = nullptr;
+
+    // Updated head
+    head = zeroD->next;
+
+    // Free dummy nodes
+    delete zeroD;
+    delete oneD;
+    delete twoD;
+
+    return head;
+}
+
 int main() {
     Node* head = new Node(1);
     head->next = new Node(2);
