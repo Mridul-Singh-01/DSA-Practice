@@ -13,7 +13,7 @@ struct ListNode {
 
 class Solution {
 public:
-    ListNode* mergeKLists(vector<ListNode*>& lists) {
+    ListNode* mergeKLists(vector<ListNode*>& lists) {       //Time Complexity O(nlogk) and space complexity O(n)
         priority_queue<pair<int, ListNode*>, vector<pair<int, ListNode*>>, greater<pair<int, ListNode*>>> pq;        
         for (int i = 0; i < lists.size(); i++) {
             if (lists[i]) {
