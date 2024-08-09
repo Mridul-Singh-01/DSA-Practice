@@ -4,7 +4,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-//brut force approach
+//brute force approach
 vector<int> nextGreaterElement(vector<int> arr){
     vector<int> res;
     for(int i=0;i<arr.size();i++){
@@ -20,30 +20,35 @@ vector<int> nextGreaterElement(vector<int> arr){
     return res;
 }
 
-vector<int> nextGreaterElementLeftUsingStack(vector<int> arr) {
-    int n = arr.size();
-    vector<int> res(n, -1);
-    stack<int> st;
-    for (int i = n-1; i >= 0; i--) {
-        while (!st.empty() && arr[st.top()] < arr[i]) {
-            res[st.top()] = arr[i];
-            st.pop();
-        }
-        st.push(i);
-    }
-    return res;
-}
-
+//Optimized Solution using Monotonic Stack(store elements in specific order in stack is called monotonic stack)
 vector<int> nextGreaterElementRightUsingStack(vector<int> arr) {
     int n = arr.size();
     vector<int> res(n, -1);
     stack<int> st;
-    for (int i = 0; i <n; i++) {
-        while (!st.empty() && arr[st.top()] < arr[i]) {
-            res[st.top()] = arr[i];
+    for (int i = n - 1; i >= 0; i--) {
+        while (!st.empty() && st.top() <= arr[i]) {
             st.pop();
         }
-        st.push(i);
+        if (!st.empty()) {
+            res[i] = st.top();
+        }
+        st.push(arr[i]);
+    }
+    return res;
+}
+
+vector<int> nextGreaterElementLeftUsingStack(vector<int> arr) {
+    int n = arr.size();
+    vector<int> res(n, -1);
+    stack<int> st;
+    for (int i = 0; i < n; i++) {
+        while (!st.empty() && st.top() <= arr[i]) {
+            st.pop();
+        }
+        if (!st.empty()) {
+            res[i] = st.top();
+        }
+        st.push(arr[i]);
     }
     return res;
 }
@@ -52,33 +57,37 @@ vector<int> nextSmallerElementRightUsingStack(vector<int> arr) {
     int n = arr.size();
     vector<int> res(n, -1);
     stack<int> st;
-    for (int i = 0; i <n; i++) {
-        while (!st.empty() && arr[st.top()] > arr[i]) {
-            res[st.top()] = arr[i];
+    for (int i = n - 1; i >= 0; i--) {
+        while (!st.empty() && st.top() >= arr[i]) {
             st.pop();
         }
-        st.push(i);
+        if (!st.empty()) {
+            res[i] = st.top();
+        }
+        st.push(arr[i]);
     }
     return res;
 }
 
-vector<int> nextSmallerElementLeftUsingStack(vector<int> arr) {
+vector<int> nextSmallerElementLeftUsingStack(vector<int> arr){
     int n = arr.size();
     vector<int> res(n, -1);
     stack<int> st;
-    for (int i = n-1; i >= 0; i--) {
-        while (!st.empty() && arr[st.top()] > arr[i]) {
-            res[st.top()] = arr[i];
+    for (int i = 0; i < n; i++) {
+        while (!st.empty() && st.top() >= arr[i]) {
             st.pop();
         }
-        st.push(i);
+        if (!st.empty()) {
+            res[i] = st.top();
+        }
+        st.push(arr[i]);
     }
     return res;
 }
 
 int main(){
     vector<int> arr={1, 5, -3, 7, 1};
-    vector<int> res=nextSmallerElementRightUsingStack(arr);
+    vector<int> res=nextSmallerElementLeftUsingStack(arr);
     for(int i=0;i<res.size();i++){
         cout << res[i] << " ";
     }
