@@ -4,6 +4,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//brut force approach
 vector<int> nextGreaterElement(vector<int> arr){
     vector<int> res;
     for(int i=0;i<arr.size();i++){
@@ -19,12 +20,54 @@ vector<int> nextGreaterElement(vector<int> arr){
     return res;
 }
 
-vector<int> nextGreaterElementUsingStack(vector<int> arr) {
+vector<int> nextGreaterElementLeftUsingStack(vector<int> arr) {
     int n = arr.size();
     vector<int> res(n, -1);
     stack<int> st;
-    for (int i = 0; i < n; i++) {
+    for (int i = n-1; i >= 0; i--) {
         while (!st.empty() && arr[st.top()] < arr[i]) {
+            res[st.top()] = arr[i];
+            st.pop();
+        }
+        st.push(i);
+    }
+    return res;
+}
+
+vector<int> nextGreaterElementRightUsingStack(vector<int> arr) {
+    int n = arr.size();
+    vector<int> res(n, -1);
+    stack<int> st;
+    for (int i = 0; i <n; i++) {
+        while (!st.empty() && arr[st.top()] < arr[i]) {
+            res[st.top()] = arr[i];
+            st.pop();
+        }
+        st.push(i);
+    }
+    return res;
+}
+
+vector<int> nextSmallerElementRightUsingStack(vector<int> arr) {
+    int n = arr.size();
+    vector<int> res(n, -1);
+    stack<int> st;
+    for (int i = 0; i <n; i++) {
+        while (!st.empty() && arr[st.top()] > arr[i]) {
+            res[st.top()] = arr[i];
+            st.pop();
+        }
+        st.push(i);
+    }
+    return res;
+}
+
+vector<int> nextSmallerElementLeftUsingStack(vector<int> arr) {
+    int n = arr.size();
+    vector<int> res(n, -1);
+    stack<int> st;
+    for (int i = n-1; i >= 0; i--) {
+        while (!st.empty() && arr[st.top()] > arr[i]) {
             res[st.top()] = arr[i];
             st.pop();
         }
@@ -35,7 +78,7 @@ vector<int> nextGreaterElementUsingStack(vector<int> arr) {
 
 int main(){
     vector<int> arr={1, 5, -3, 7, 1};
-    vector<int> res=nextGreaterElementUsingStack(arr);
+    vector<int> res=nextSmallerElementRightUsingStack(arr);
     for(int i=0;i<res.size();i++){
         cout << res[i] << " ";
     }
