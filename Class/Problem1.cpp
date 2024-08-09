@@ -87,9 +87,19 @@ vector<int> nextSmallerElementLeftUsingStack(vector<int> arr){
 
 int main(){
     vector<int> arr={1, 5, -3, 7, 1};
-    vector<int> res=nextSmallerElementLeftUsingStack(arr);
+    cout << "Array :\n";
+    for(int i=0;i<arr.size();i++){
+        cout << arr[i] << " ";
+    }
+    vector<int> res=nextGreaterElementRightUsingStack(arr);
+    cout << "\n NGE from right(means to look greater element on right side) \n";
     for(int i=0;i<res.size();i++){
         cout << res[i] << " ";
+    }
+    cout << "\n NGE from left(means to look greater element on left side) \n";
+    vector<int> res1=nextGreaterElementLeftUsingStack(arr);
+    for(int i=0;i<res1.size();i++){
+        cout << res1[i] << " ";
     }
     return 0;
 }
