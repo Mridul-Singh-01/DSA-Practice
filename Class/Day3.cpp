@@ -5,7 +5,7 @@ int binarySerch(vector<int> arr,int k){     //log n
     int low=0;
     int high=arr.size()-1;
     while(low<=high){
-        int mid=(low+high)/2;
+        int mid=(low+high)/2;       //int mid = low + (high - low) / 2; when value is overflow the interger boundary
         if(arr[mid]==k){
             return 1;
         }
@@ -35,6 +35,8 @@ int SquareLessThanK(int k){
     }
     return res;
 }
+
+
 
 int main(){
     vector<int> arr={1,2,3,4,5};
