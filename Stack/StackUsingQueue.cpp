@@ -10,7 +10,7 @@ public:
 
     void push(int x) {
         q.push(x);
-        for (int i = 1; i < q.size(); ++i) {
+        for (int i = 1; i < q.size(); ++i) {        //reversing the queue after every operation
             q.push(q.front());
             q.pop();
         }

@@ -10,7 +10,7 @@ public:
         
     }
     
-    void push(int x) {      // 3 important steps first
+    void push(int x) {      // Three important steps 
         while(st1.size()){  // first st1 -> st2
             st2.push(st1.top());
             st1.pop();
@@ -22,7 +22,7 @@ public:
         }
     }
     
-    int pop() {
+    int pop() {     // st1 is main stack
         if(st1.empty())return -1;
         int poped=st1.top();
         st1.pop();
