@@ -15,7 +15,7 @@ int priority(char c) {
     }
 }
 
-string infixToPostfix(string s) {
+string infixToPostfix(string s) {   //time complexity O(n) and space complexity O(n)
     stack<char> st;
     string postfix = "";
     int i = 0;
