@@ -30,10 +30,18 @@ string infixToPostfix(string s) {   //time complexity O(n) and space complexity 
                 st.pop();
             }
             st.pop();
-        } else {
-            while (!st.empty() && priority(st.top()) >= priority(s[i])) {
-                postfix += st.top();
-                st.pop();
+        } else {       
+            if(s[i]=='^'){  //This Condition is different from InfixToPostfix function
+                while(!st.empty() && priority(st.top())>=priority(s[i])){
+                    postfix+=st.top();
+                    st.pop();
+                }
+            }
+            else{
+                while (!st.empty() && priority(st.top()) > priority(s[i])) {
+                    postfix += st.top();
+                    st.pop();
+                }
             }
             st.push(s[i]);
         }
