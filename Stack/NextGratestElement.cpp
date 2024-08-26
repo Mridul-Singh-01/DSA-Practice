@@ -21,7 +21,7 @@ vector<int> nextGreaterElement(vector<int> arr){
 }
 
 //Optimized Solution using Monotonic Stack(store elements in specific order in stack is called monotonic stack)
-vector<int> nextGreaterElementRightUsingStack(vector<int> arr) {
+vector<int> nextGreaterElementRightUsingStack(vector<int> arr) {    //Also Called next Greater Element 
     int n = arr.size();
     vector<int> res(n);
     stack<int> st;
@@ -38,7 +38,7 @@ vector<int> nextGreaterElementRightUsingStack(vector<int> arr) {
     return res;
 }
 
-vector<int> nextGreaterElementLeftUsingStack(vector<int> arr) {
+vector<int> nextGreaterElementLeftUsingStack(vector<int> arr) { //Also Called previous Greater Element 
     int n = arr.size();
     vector<int> res(n, -1);
     stack<int> st;
@@ -54,7 +54,7 @@ vector<int> nextGreaterElementLeftUsingStack(vector<int> arr) {
     return res;
 }
 
-vector<int> nextSmallerElementRightUsingStack(vector<int> arr) {
+vector<int> nextSmallerElementRightUsingStack(vector<int> arr) {    //Also Called next smaller Element 
     int n = arr.size();
     vector<int> res(n, -1);
     stack<int> st;
@@ -70,7 +70,7 @@ vector<int> nextSmallerElementRightUsingStack(vector<int> arr) {
     return res;
 }
 
-vector<int> nextSmallerElementLeftUsingStack(vector<int> arr){
+vector<int> nextSmallerElementLeftUsingStack(vector<int> arr){  //Also Called previous smaller Element 
     int n = arr.size();
     vector<int> res(n, -1);
     stack<int> st;

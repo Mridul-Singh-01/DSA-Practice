@@ -31,7 +31,7 @@ string infixToPostfix(string s) {   //time complexity O(n) and space complexity 
             }
             st.pop();
         } else {       
-            if(s[i]=='^'){  //This Condition is different from InfixToPostfix function
+            if(s[i]=='^'){
                 while(!st.empty() && priority(st.top())>=priority(s[i])){
                     postfix+=st.top();
                     st.pop();
