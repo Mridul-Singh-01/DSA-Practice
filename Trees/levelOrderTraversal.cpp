@@ -52,3 +52,37 @@ int main(){
     }
     return 0;
 }
+//Another Apporach 
+// int height(struct node* node){
+//     if(node==NULL){
+//         return 0;
+//     }
+//     int lheight=height(node->left);
+//     int rheight=height(node->right);
+//     if(lheight>rheight){
+//         return lheight+1;
+//     }
+//     else{
+//         return rheight+1;
+//     }
+// }
+
+// void printCurrentLevel(struct node* node,int level){
+//     if(node==NULL){
+//         return;
+//     }
+//     if(level==1){
+//         printf("%d  ",node->data);
+//     }
+//     else if(level>1){
+//         printCurrentLevel(node->left,level-1);
+//         printCurrentLevel(node->right,level-1);
+//     }
+// }
+
+
+// void printLevel(struct node* node){
+//     for(int i=1;i<=height(node);i++){
+//         printCurrentLevel(node,i);
+//     }
+// }
