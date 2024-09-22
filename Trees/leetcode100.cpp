@@ -21,7 +21,7 @@ public:
         if(p==nullptr || q==nullptr){
             return false;
         }
-        if(p->val!=q->val){
+        if(p->data!=q->data){
             return false;
         }
         bool a=isSameTree(p->left,q->left);

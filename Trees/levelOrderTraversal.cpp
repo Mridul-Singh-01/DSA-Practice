@@ -19,7 +19,8 @@ vector<vector<int>> levelOrder(Node* head){
     q.push(head);
     while(!q.empty()){
         vector<int> level;
-        for(int i=0;i<q.size();i++){
+        int s=q.size();
+        for(int i=0;i<s;i++){
             Node* temp=q.front();
             q.pop();    
             if(temp->left){
